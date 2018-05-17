@@ -10,7 +10,7 @@ import (
 	"time"
 	"strings"
 
-	"github.com/sammy007/open-ethereum-pool/util"
+	"github.com/dataspark-co/open-ethereum-pool/util"
 )
 
 const (
