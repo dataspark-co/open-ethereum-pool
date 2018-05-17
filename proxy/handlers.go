@@ -39,7 +39,7 @@ func (s *ProxyServer) handleGetWorkRPC(cs *Session) ([]string, *ErrorReply) {
 		return nil, &ErrorReply{Code: 0, Message: "Work not ready 1"}
 	}
 
-	if len(t.Header) {
+	if len(t.Header) == 0 {
 		return nil, &ErrorReply{Code: 0, Message: "Work not ready 2"}
 	}
 
