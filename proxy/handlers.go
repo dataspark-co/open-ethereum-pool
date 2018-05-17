@@ -35,18 +35,6 @@ func (s *ProxyServer) handleLoginRPC(cs *Session, params []string, id string) (b
 
 func (s *ProxyServer) handleGetWorkRPC(cs *Session) ([]string, *ErrorReply) {
 	t := s.currentBlockTemplate()
-	if t == nil {
-		return nil, &ErrorReply{Code: 0, Message: "Work not ready 1"}
-	}
-
-	if len(t.Header) == 0 {
-		return nil, &ErrorReply{Code: 0, Message: "Work not ready 2"}
-	}
-
-	if s.isSick() {
-		return nil, &ErrorReply{Code: 0, Message: "Work not ready 3"}
-	}
-
 	if t == nil || len(t.Header) == 0 || s.isSick() {
 		return nil, &ErrorReply{Code: 0, Message: "Work not ready"}
 	}
