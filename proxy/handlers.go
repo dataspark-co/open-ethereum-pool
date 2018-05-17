@@ -21,7 +21,7 @@ func (s *ProxyServer) handleLoginRPC(cs *Session, params []string, id string) (b
 	}
 
 	login := strings.ToLower(params[0])
-	log.Println(login)
+	log.Printf("Stratum miner login %v", login)
 
 	if !util.IsValidHexAddress(login) {
 		return false, &ErrorReply{Code: -1, Message: "Invalid login"}
