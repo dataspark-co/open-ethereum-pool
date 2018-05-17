@@ -108,8 +108,8 @@ func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 		var params []string
 		err := json.Unmarshal(req.Params, &params)
 		s := strings.Split(params[0], ".")
-		wallet, workerName := s[0], s[1]
-		params[0] = wallet
+		workerName := s[1]
+		params[0] := s[0]
 		
 		if err != nil {
 			log.Println("Malformed stratum request params from", cs.ip)
@@ -130,8 +130,8 @@ func (cs *Session) handleTCPMessage(s *ProxyServer, req *StratumReq) error {
 		var params []string
 		err := json.Unmarshal(req.Params, &params)
 		s := strings.Split(params[0], ".")
-		wallet, workerName := s[0], s[1]
-		params[0] = wallet
+		workerName := s[1]
+		params[0] := s[0]
 		if err != nil {
 			log.Println("Malformed stratum request params from", cs.ip)
 			return err
